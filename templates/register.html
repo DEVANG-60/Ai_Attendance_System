@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Register Student</title>
+
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Poppins,sans-serif;
+        }
+
+        body{
+
+            background:#0b1120;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+
+        }
+
+        .card{
+
+            width:700px;
+
+            background:#111827;
+
+            border-radius:20px;
+
+            padding:40px;
+
+            color:white;
+
+            box-shadow:0 0 40px rgba(0,255,255,.15);
+
+        }
+
+        h1{
+
+            text-align:center;
+
+            margin-bottom:30px;
+
+        }
+
+        form{
+
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:20px;
+
+        }
+
+        input{
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:10px;
+
+            background:#1f2937;
+
+            color:white;
+
+            font-size:16px;
+
+        }
+
+        input::placeholder{
+
+            color:#bbb;
+
+        }
+
+        button{
+
+            grid-column:span 2;
+
+            padding:15px;
+
+            border:none;
+
+            border-radius:12px;
+
+            font-size:18px;
+
+            background:#2563eb;
+
+            color:white;
+
+            cursor:pointer;
+
+            transition:.3s;
+
+        }
+
+        button:hover{
+
+            background:#1d4ed8;
+
+            transform:scale(1.02);
+
+        }
+
+        .note{
+
+            text-align:center;
+
+            margin-top:20px;
+
+            color:#94a3b8;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>🎓 Register New Student</h1>
+
+    <form method="POST">
+
+        <input
+                type="text"
+                name="name"
+                placeholder="Student Name"
+                required>
+
+        <input
+                type="text"
+                name="roll"
+                placeholder="Roll Number"
+                required>
+
+        <input
+                type="text"
+                name="department"
+                placeholder="Department"
+                required>
+
+        <input
+                type="text"
+                name="year"
+                placeholder="Year"
+                required>
+
+        <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                style="grid-column:span 2;">
+
+        <button type="submit">
+
+            📷 Register & Scan Face
+
+        </button>
+
+    </form>
+
+    <div class="note">
+
+        After clicking Register, the webcam will automatically open and capture the student's face.
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

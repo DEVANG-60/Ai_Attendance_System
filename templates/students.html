@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Poppins,sans-serif;
+        }
+
+        body{
+        background:#0f172a;
+        color:white;
+        padding:40px;
+        }
+
+        h1{
+        text-align:center;
+        margin-bottom:30px;
+        }
+
+        .top{
+
+        display:flex;
+        justify-content:space-between;
+        margin-bottom:25px;
+
+        }
+
+        input{
+
+        width:320px;
+        padding:12px;
+        border:none;
+        border-radius:8px;
+        font-size:15px;
+
+        }
+
+        table{
+
+        width:100%;
+        border-collapse:collapse;
+        background:#1e293b;
+        border-radius:15px;
+        overflow:hidden;
+
+        }
+
+        th{
+
+        background:#2563eb;
+        padding:16px;
+
+        }
+
+        td{
+
+        padding:14px;
+        text-align:center;
+
+        }
+
+        tr:nth-child(even){
+
+        background:#334155;
+
+        }
+
+        button{
+
+        padding:8px 16px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:14px;
+
+        }
+
+        .delete{
+
+        background:#ef4444;
+        color:white;
+
+        }
+
+        .edit{
+
+        background:#22c55e;
+        color:white;
+
+        }
+
+        .back{
+
+        background:#2563eb;
+        color:white;
+        padding:12px 22px;
+        text-decoration:none;
+        border-radius:10px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Registered Students</h1>
+
+<div class="top">
+
+    <a href="/dashboard" class="back">⬅ Dashboard</a>
+
+    <input
+            type="text"
+            id="search"
+            placeholder="Search Student..."
+            onkeyup="searchStudent()">
+
+</div>
+
+<table id="studentTable">
+
+    <thead>
+
+    <tr>
+
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Email</th>
+        <th>Action</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for row in students %}
+
+    <tr>
+
+        <td>{{row.Name}}</td>
+        <td>{{row.Roll}}</td>
+        <td>{{row.Department}}</td>
+        <td>{{row.Year}}</td>
+        <td>{{row.Email}}</td>
+
+        <td>
+
+            <a href="/edit/{{row.Roll}}">
+
+                <button class="edit">
+
+                    ✏ Edit
+
+                </button>
+
+            </a>
+
+            <a
+                    href="/delete/{{row.Roll}}"
+                    onclick="return confirm('Delete this student?')">
+
+                <button class="delete">
+
+                    🗑 Delete
+
+                </button>
+
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<script>
+
+    function searchStudent(){
+
+    let input=document.getElementById("search").value.toUpperCase();
+
+    let table=document.getElementById("studentTable");
+
+    let tr=table.getElementsByTagName("tr");
+
+    for(let i=1;i<tr.length;i++){
+
+    let td=tr[i].getElementsByTagName("td")[0];
+
+    if(td){
+
+    let txt=td.textContent||td.innerText;
+
+    tr[i].style.display=txt.toUpperCase().indexOf(input)>-1?"":"none";
+
+    }
+
+    }
+
+    }
+
+</script>
+
+</body>
+
+</html>

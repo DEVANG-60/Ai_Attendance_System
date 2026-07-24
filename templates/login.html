@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | AI Attendance System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Poppins,sans-serif;
+        }
+
+        body{
+
+        height:100vh;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        background:linear-gradient(135deg,#2563eb,#0f172a);
+
+        overflow:hidden;
+
+        }
+
+        .bg{
+
+        position:absolute;
+
+        width:100%;
+
+        height:100%;
+
+        overflow:hidden;
+
+        z-index:0;
+
+        }
+
+        .circle{
+
+        position:absolute;
+
+        border-radius:50%;
+
+        background:rgba(255,255,255,.08);
+
+        animation:float 12s infinite linear;
+
+        }
+
+        .circle:nth-child(1){
+
+        width:250px;
+        height:250px;
+        top:8%;
+        left:10%;
+
+        }
+
+        .circle:nth-child(2){
+
+        width:350px;
+        height:350px;
+        bottom:-100px;
+        right:8%;
+
+        }
+
+        .circle:nth-child(3){
+
+        width:180px;
+        height:180px;
+        bottom:25%;
+        left:30%;
+
+        }
+
+        @keyframes float{
+
+        0%{
+
+        transform:translateY(0px);
+
+        }
+
+        50%{
+
+        transform:translateY(-30px);
+
+        }
+
+        100%{
+
+        transform:translateY(0px);
+
+        }
+
+        }
+
+        .login{
+
+        position:relative;
+
+        z-index:10;
+
+        width:430px;
+
+        padding:40px;
+
+        background:rgba(255,255,255,.12);
+
+        backdrop-filter:blur(18px);
+
+        border-radius:25px;
+
+        box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+        text-align:center;
+
+        color:white;
+
+        }
+
+        .login h1{
+
+        margin-bottom:10px;
+
+        font-size:34px;
+
+        }
+
+        .login p{
+
+        margin-bottom:30px;
+
+        color:#ddd;
+
+        }
+
+        input{
+
+        width:100%;
+
+        padding:15px;
+
+        margin-bottom:18px;
+
+        border:none;
+
+        border-radius:12px;
+
+        background:rgba(255,255,255,.2);
+
+        color:white;
+
+        font-size:16px;
+
+        outline:none;
+
+        }
+
+        input::placeholder{
+
+        color:#ddd;
+
+        }
+
+        button{
+
+        width:100%;
+
+        padding:15px;
+
+        background:white;
+
+        color:#2563eb;
+
+        font-size:18px;
+
+        font-weight:bold;
+
+        border:none;
+
+        border-radius:12px;
+
+        cursor:pointer;
+
+        transition:.3s;
+
+        }
+
+        button:hover{
+
+        transform:scale(1.03);
+
+        }
+
+        .error{
+
+        background:#dc2626;
+
+        padding:12px;
+
+        border-radius:10px;
+
+        margin-bottom:18px;
+
+        }
+
+        .footer{
+
+        margin-top:25px;
+
+        font-size:14px;
+
+        color:#ddd;
+
+        }
+
+        .footer a{
+
+        color:white;
+
+        text-decoration:none;
+
+        font-weight:bold;
+
+        }
+
+        .logo{
+
+        font-size:60px;
+
+        margin-bottom:15px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="bg">
+
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+
+    <div class="circle"></div>
+
+</div>
+
+<div class="login">
+
+    <div class="logo">
+
+        🎓
+
+    </div>
+
+    <h1>
+
+        AI Attendance
+
+    </h1>
+
+    <p>
+
+        Face Recognition Attendance Management System
+
+    </p>
+
+    {% if error %}
+
+    <div class="error">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+    <form method="POST">
+
+        <input
+
+                type="text"
+
+                name="username"
+
+                placeholder="Username"
+
+                required>
+
+        <input
+
+                type="password"
+
+                name="password"
+
+                placeholder="Password"
+
+                required>
+
+        <button type="submit">
+
+            Login
+
+        </button>
+
+    </form>
+
+    <div class="footer">
+
+        Default Login<br><br>
+
+        <b>Username:</b> admin<br>
+
+        <b>Password:</b> 1234
+
+        <br><br>
+
+        <a href="/">⬅ Back to Home</a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

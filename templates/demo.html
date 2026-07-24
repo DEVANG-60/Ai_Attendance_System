@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Face Recognition</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Poppins,sans-serif;
+        }
+
+        body{
+
+        background:#0f172a;
+        color:white;
+        padding:40px;
+
+        }
+
+        .header{
+
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:30px;
+
+        }
+
+        .header a{
+
+        text-decoration:none;
+        color:white;
+        background:#2563eb;
+        padding:12px 22px;
+        border-radius:10px;
+
+        }
+
+        .container{
+
+        display:grid;
+        grid-template-columns:2fr 1fr;
+        gap:25px;
+
+        }
+
+        .camera{
+
+        background:#1e293b;
+        padding:20px;
+        border-radius:20px;
+
+        }
+
+        .camera img{
+
+        width:100%;
+        border-radius:15px;
+        border:5px solid #2563eb;
+
+        }
+
+        .side{
+
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+
+        }
+
+        .card{
+
+        background:#1e293b;
+        padding:25px;
+        border-radius:18px;
+        text-align:center;
+
+        }
+
+        .card h2{
+
+        margin-bottom:15px;
+
+        }
+
+        .status{
+
+        font-size:28px;
+        color:#22c55e;
+        font-weight:bold;
+
+        }
+
+        .instructions{
+
+        line-height:35px;
+        font-size:18px;
+
+        }
+
+        .footer{
+
+        margin-top:40px;
+        text-align:center;
+        color:#94a3b8;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>🎥 Live Face Recognition</h1>
+
+    <a href="/dashboard">
+
+        ⬅ Dashboard
+
+    </a>
+
+</div>
+
+<div class="container">
+
+    <div class="camera">
+
+        <img src="/video">
+
+    </div>
+
+    <div class="side">
+
+        <div class="card">
+
+            <h2>
+
+                System Status
+
+            </h2>
+
+            <div class="status">
+
+                🟢 ACTIVE
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+
+                Recognition
+
+            </h2>
+
+            <p>
+
+                ✔ Face Detection Enabled
+
+            </p>
+
+            <br>
+
+            <p>
+
+                ✔ AI Recognition Running
+
+            </p>
+
+            <br>
+
+            <p>
+
+                ✔ Attendance Auto Save
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+
+                Instructions
+
+            </h2>
+
+            <div class="instructions">
+
+                📍 Stand 1-2 meters away
+
+                <br>
+
+                😊 Look at the camera
+
+                <br>
+
+                💡 See proper lighting
+
+                <br>
+
+                👤 Only One Person
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+
+    AI Face Recognition Attendance System
+
+</div>
+
+</body>
+
+</html>

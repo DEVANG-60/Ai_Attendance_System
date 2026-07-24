@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Attendance System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Poppins,sans-serif;
+        scroll-behavior:smooth;
+        }
+
+        body{
+
+        background:#0f172a;
+        color:white;
+
+        }
+
+        nav{
+
+        position:fixed;
+        width:100%;
+        padding:20px 60px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        background:#111827;
+        z-index:1000;
+
+        }
+
+        nav h2{
+
+        font-size:30px;
+
+        }
+
+        nav a{
+
+        color:white;
+        text-decoration:none;
+        margin-left:30px;
+
+        }
+
+        .hero{
+
+        height:100vh;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:40px;
+
+        background:linear-gradient(135deg,#2563eb,#0f172a);
+
+        }
+
+        .hero h1{
+
+        font-size:60px;
+        margin-bottom:20px;
+
+        }
+
+        .hero p{
+
+        font-size:22px;
+        width:70%;
+
+        }
+
+        .btn{
+
+        margin-top:40px;
+
+        display:inline-block;
+
+        padding:18px 45px;
+
+        background:white;
+
+        color:#2563eb;
+
+        border-radius:12px;
+
+        text-decoration:none;
+
+        font-weight:bold;
+
+        transition:.3s;
+
+        }
+
+        .btn:hover{
+
+        transform:scale(1.05);
+
+        }
+
+        section{
+
+        padding:90px 80px;
+
+        }
+
+        .title{
+
+        text-align:center;
+
+        font-size:42px;
+
+        margin-bottom:50px;
+
+        }
+
+        .features{
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:30px;
+
+        }
+
+        .feature{
+
+        background:#1e293b;
+
+        padding:35px;
+
+        border-radius:20px;
+
+        text-align:center;
+
+        transition:.3s;
+
+        }
+
+        .feature:hover{
+
+        transform:translateY(-10px);
+
+        }
+
+        .feature h2{
+
+        margin:20px 0;
+
+        }
+
+        .workflow{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        gap:25px;
+
+        }
+
+        .step{
+
+        flex:1;
+
+        background:#1e293b;
+
+        padding:30px;
+
+        border-radius:20px;
+
+        text-align:center;
+
+        }
+
+        .gallery{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:30px;
+
+        }
+
+        .image{
+
+        height:280px;
+
+        background:#1e293b;
+
+        border-radius:20px;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        font-size:26px;
+
+        }
+
+        .tech{
+
+        display:grid;
+
+        grid-template-columns:repeat(4,1fr);
+
+        gap:20px;
+
+        }
+
+        .tech div{
+
+        background:#2563eb;
+
+        padding:25px;
+
+        text-align:center;
+
+        border-radius:15px;
+
+        font-size:22px;
+
+        }
+
+        footer{
+
+        padding:40px;
+
+        text-align:center;
+
+        background:#111827;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>🎓 AI Attendance</h2>
+
+    <div>
+
+        <a href="#features">Features</a>
+
+        <a href="#workflow">Workflow</a>
+
+        <a href="#technology">Technology</a>
+
+        <a href="/login">Login</a>
+
+    </div>
+
+</nav>
+
+<div class="hero">
+
+    <h1>AI Face Recognition Attendance System</h1>
+
+    <p>
+
+        An intelligent attendance management platform powered by Artificial Intelligence,
+        OpenCV and Flask. Register students, capture faces, recognize them instantly
+        and generate attendance reports automatically.
+
+    </p>
+
+    <a href="/login" class="btn">
+
+        Get Started
+
+    </a>
+
+</div>
+
+<section id="features">
+
+    <h1 class="title">
+
+        Amazing Features
+
+    </h1>
+
+    <div class="features">
+
+        <div class="feature">
+
+            <h2>📷 Face Registration</h2>
+
+            <p>
+
+                Register students by capturing multiple facial images using webcam.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h2>🧠 AI Recognition</h2>
+
+            <p>
+
+                Real-time face recognition using OpenCV LBPH Face Recognizer.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h2>📄 Attendance Reports</h2>
+
+            <p>
+
+                Generate attendance automatically with date and time.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h2>📊 Analytics</h2>
+
+            <p>
+
+                Visualize attendance with graphs and statistics.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h2>⬇ Export CSV</h2>
+
+            <p>
+
+                Download attendance records instantly.
+
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h2>⚡ Live Camera</h2>
+
+            <p>
+
+                Monitor attendance live using the webcam feed.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="workflow">
+
+    <h1 class="title">
+
+        How It Works
+
+    </h1>
+
+    <div class="workflow">
+
+        <div class="step">
+
+            <h2>1️⃣ Register</h2>
+
+            <p>
+
+                Enter student details and capture face images.
+
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <h2>2️⃣ Train AI</h2>
+
+            <p>
+
+                Automatically train the face recognition model.
+
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <h2>3️⃣ Recognize</h2>
+
+            <p>
+
+                Detect students instantly from live camera.
+
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <h2>4️⃣ Attendance</h2>
+
+            <p>
+
+                Attendance gets stored automatically.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h1 class="title">
+
+        Project Preview
+
+    </h1>
+
+    <div class="gallery">
+
+        <div class="image">
+
+            Dashboard Screenshot
+
+        </div>
+
+        <div class="image">
+
+            Attendance Analytics
+
+        </div>
+
+        <div class="image">
+
+            Student Registration
+
+        </div>
+
+        <div class="image">
+
+            Live Recognition
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="technology">
+
+    <h1 class="title">
+
+        Technology Stack
+
+    </h1>
+
+    <div class="tech">
+
+        <div>Python</div>
+
+        <div>Flask</div>
+
+        <div>OpenCV</div>
+
+        <div>Pandas</div>
+
+        <div>NumPy</div>
+
+        <div>HTML/CSS</div>
+
+        <div>JavaScript</div>
+
+        <div>AI</div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>
+
+        AI Attendance System
+
+    </h2>
+
+    <br>
+
+    IGNIS 🐦‍🔥
+
+</footer>
+
+</body>
+
+</html>
