@@ -436,38 +436,29 @@ def recent_attendance():
 @app.route("/stats")
 def stats():
 
-    total = 0
+    total = len([
+        d for d in os.listdir("students")
+        if os.path.isdir(os.path.join("students", d))
+    ])
+
     present = 0
-
-    if os.path.exists("students"):
-
-        total = len(
-            [
-                folder
-                for folder in os.listdir("students")
-                if os.path.isdir(
-                os.path.join(
-                    "students",
-                    folder
-                )
-            )
-            ]
-        )
 
     if os.path.exists("attendance.csv"):
 
-        df = pd.read_csv(
-            "attendance.csv"
-        )
+        df = pd.read_csv("attendance.csv")
 
-        present = len(df)
+        if not df.empty:
+
+            today = datetime.now().strftime("%Y-%m-%d")
+
+            df = df[df["Date"] == today]
+
+            present = df["Name"].nunique()
 
     return {
         "total": total,
         "present": present
     }
-
-
 # ==========================================================
 # REPORT
 # ==========================================================
@@ -526,30 +517,33 @@ def chart():
         return "<h2>No Attendance Data</h2>"
 
     counts = df["Name"].value_counts()
+    labels = counts.index.astype(str).tolist()
+    values = counts.astype(int).tolist()
 
     return f"""
     <html>
-    <body style="font-family:Arial;text-align:center;">
+        <head>
+            <title>Attendance Analytics</title>
+        </head>
 
-        <h2>Attendance Analytics</h2>
+    <body style="font-family:Arial;text-align:center;background:#f5f5f5;">
 
-        <img
-        src="https://quickchart.io/chart?c={{
+        <h1>Attendance Analytics</h1>
+
+        <img src="https://quickchart.io/chart?c={{
             type:'bar',
             data:{{
-                labels:{list(counts.index)},
-                datasets:[{{
-                    label:'Attendance Count',
-                    data:{list(counts.values)}
-                }}]
+            labels:{labels},
+            datasets:[{{
+            label:'Attendance Count',
+            data:{values}
+            }}]
             }}
-        }}"
-        >
+        }}">
 
     </body>
-    </html>
-    """
-
+</html>
+"""
 
 # ==========================================================
 # STUDENT LIST
